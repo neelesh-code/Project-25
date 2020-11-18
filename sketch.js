@@ -7,25 +7,30 @@ var dustbin1, dustbin2, dustbin3;
 var ngdustbin;
 var ground1;
 var paper1;
+
 function preload()
 {
-	
+	dustbinImg = loadImage("dustbingreen.png")
 }
 
 function setup() {
-	createCanvas(800, 700);
+	createCanvas(900, 700);
 
 
 	engine = Engine.create();
 	world = engine.world;
 
 	//Create the Bodies Here.
-	ground1 = new Ground(width/2, height-70,width, 20);
-	dustbin1= new Dustbin(width/3+150,height-107.5,25,100);
-	dustbin2= new Dustbin(2*width/3+150, height-107.5,25,100);
-	dustbin3=new Dustbin(width/2+150,height-70,800/3,25);
-	paper1=new Paper(100,350,30);
-	ngdustbin= new Dustbin1(33*width/48, height-180, 300, 300)
+	ground1 = new Ground(450, height-70,width, 20);
+	dustbin1= new Dustbin(600,height-107.5,25,100);
+	dustbin2= new Dustbin(800, height-107.5,25,100);
+	dustbin3=new Dustbin(700,height-70,200,25);
+	paper1=new Paper(150,350,30);
+
+	ngdustbin=createSprite(700, height-200, 100, 100);
+	ngdustbin.addImage(dustbinImg);
+	ngdustbin.scale = 0.8;
+
 
 	Engine.run(engine);
   
@@ -41,7 +46,6 @@ function draw() {
   dustbin2.display();
   dustbin3.display();
   
-  ngdustbin.display();
   drawSprites();
  }
 
